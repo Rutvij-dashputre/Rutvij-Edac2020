@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>jQuery selector</title>
+    <link rel="stylesheet" href="/jquery/jQStyle4.css">
+    <script src="/jquery/jQuery.js"></script>
+<style>
+    body{font-family:arial}
+    #box{
+        padding : 10px;
+        border: 1px solid #000;
+    }
+</style>
+
+</head>
+<body>
+    <h1>yahoo baba : jQuery selector</h1>
+    <div id = "box" class = "test">
+        <h2 style= background-color:blue > text box 2  </style> </h2>
+    </div>
+
+    <ul id ="list">
+        <li><b>Orange</b></li>
+        <li class = "test">Banana</li>
+        <li><Strong>Graphes</Strong></li>
+        <li class = "test">Apple</li>
+        <li><Strong>Mango</Strong></li>
+        
+    </ul>
+    <script>
+        $(document).ready(function(){
+             $("#list").css("color","blue");
+             //$(".test").css("border","2px solid black");
+           // $("*").css("border","2px solid black");
+        // $("li:first").css("border","2px solid orange");
+        });
+    </script>
+</body>
+</body>
+</html>

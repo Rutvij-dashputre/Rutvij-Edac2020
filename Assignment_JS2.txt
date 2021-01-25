@@ -1,0 +1,113 @@
+//1)With example illustrate  variable and function closure in javascript
+var que01 = function()
+{
+    var q=16;
+    console.log(q);
+    return function(r)
+    {
+        console.log(r);
+    return "Hello";
+    }
+
+}
+var getval = que01();
+console.log(getval(12));
+
+// 2) Write a javascript function named reverse which takes a string argument and returns the reversed string
+
+function reverse()
+{
+    var str = "Tanuja";
+    console.log(str);
+    // return (reverseString(str))
+    var value = str.length;
+    console.log(value)
+    var res = "";
+    for(var i = str.length-1;i>=0;i--)
+    {
+        res+=str[i];
+    }
+    console.log(res);
+
+    return res.split("").reverse().join("");
+
+}
+
+console.log(reverse());
+
+
+/* 3)Given a javascript array of objects having a radius property as shown [{radius: 5}, {radius: 9}, {radius: 2}] , 
+ write a comparator function to sort it.*/
+
+
+var radiiA = [{radius : 5}, {radius : 9}, {radius : 2}]
+
+radiiA.sort((a,b) => (a.radius > b.radius) ? 1 : ((b.radius > a.radius) ? -1 : 0));
+console.log(radiiA);
+
+
+
+
+//4)Write a Javascript program to sort elements of an array using sorting algorithm 
+
+function que04(arrayToSort)
+{
+    for(var i=0;i<arrayToSort.length;i++)
+    {
+        for(var j=0;j<arrayToSort.length;j++)
+        {
+            if(arrayToSort[i]<arrayToSort[j])
+            {
+            var temp = arrayToSort[i];
+            arrayToSort[i]=arrayToSort[j];
+            arrayToSort[j]=temp;
+        }
+        }
+    }
+    console.log(arrayToSort);
+}
+var arrayToSort = [3,45,6,9,2];
+que04(arrayToSort);
+
+/*5)Write a javascript function named length_of_array , which takes an array as argument and returns the number of elements in that array (as opposed to what is given by the length property of the array). Remember undefined can also be an element if it is explicitly set at some index, e.g. x[5] = undefined; . This undefined should be counted,
+ but elements which are not present in the array (as arrays can be sparse), should not be counted.  */
+
+ function length_of_array(arrayLength)
+ {
+     var count=0;
+    arrayLength.forEach(i =>{
+        console.log(i);
+        count++;
+    });
+    console.log(count);
+ }
+ var arrayLength = [1,2,3,4,undefined,null,undefined,10];
+ length_of_array(arrayLength);
+
+ /* 6)With suitable example explain OOL concepts in javascript like Inheritance, Constructor,
+  Encapsulation and Abstraction */
+function Sport(playerName,noOfPlayer,noOfMatches)
+{
+    this.playerName=playerName;
+    this.noOfPlayer=noOfPlayer;
+    this.noOfMatches=noOfMatches;
+}
+
+  function BasketBall1(playerName,noOfPlayer,noOfMatches,jerseyNo)
+{
+    Sport.call(this,playerName,noOfPlayer,noOfMatches);
+    this.jerseyNo=jerseyNo;
+}
+
+BasketBall1.prototype = Object.create(Sport.prototype);
+BasketBall1.prototype.constructor=BasketBall1;
+
+BasketBall1.prototype.playing = function()
+{
+    console.log(this.playerName+" is playing with "+this.noOfPlayer);
+}
+var b1 = new BasketBall1("james harden",12,23,4);
+console.log(b1);
+b1.playing();
+var s1 = new Sport("ronaldo",11,20,5);
+console.log(s1);
